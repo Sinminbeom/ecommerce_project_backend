@@ -3,7 +3,6 @@ package com.minbeom.EcommerceProjectBackend.exception;
 import com.minbeom.EcommerceProjectBackend.response.ErrorCode;
 
 public class CustomException extends RuntimeException{
-    private static final long serialVersionUID = 1L;
     private ErrorCode errorCode;
 
     public CustomException(ErrorCode errorCode) {

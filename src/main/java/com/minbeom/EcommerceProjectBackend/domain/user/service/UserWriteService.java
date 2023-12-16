@@ -7,6 +7,8 @@ import com.minbeom.EcommerceProjectBackend.domain.user.repository.UserRepository
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class UserWriteService {
@@ -18,7 +20,10 @@ public class UserWriteService {
                 .nickName(command.nickName())
                 .email(command.email())
                 .password(command.password())
-                .image(command.image()).build();
+                .image(command.image())
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
         userRepository.save(user);
         return toDTO(user);
     }

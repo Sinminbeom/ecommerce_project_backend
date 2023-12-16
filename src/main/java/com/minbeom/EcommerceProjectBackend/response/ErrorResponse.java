@@ -15,6 +15,13 @@ public class ErrorResponse {
     private int status;
     private String code;
     private String message;
+    //@Valid의 Parameter 검증을 통과하지 못한 필드가 담긴다.
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("errors")
+    private List<CustomFieldError> customFieldErrors;
+
+    public ErrorResponse() {
+    }
 
     public LocalDateTime getTimestamp() {
         return timestamp;
@@ -30,25 +37,6 @@ public class ErrorResponse {
 
     public String getMessage() {
         return message;
-    }
-
-    @Override
-    public String toString() {
-        return "ErrorResponse{" +
-                "timestamp=" + timestamp +
-                ", status=" + status +
-                ", code='" + code + '\'' +
-                ", message='" + message + '\'' +
-                ", customFieldErrors=" + customFieldErrors +
-                '}';
-    }
-
-    //@Valid의 Parameter 검증을 통과하지 못한 필드가 담긴다.
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty("errors")
-    private List<CustomFieldError> customFieldErrors;
-
-    public ErrorResponse() {
     }
 
     static public ErrorResponse create() {
@@ -88,6 +76,7 @@ public class ErrorResponse {
             ));
         });
     }
+
     //parameter 검증에 통과하지 못한 필드가 담긴 클래스이다.
     public static class CustomFieldError {
 

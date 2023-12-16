@@ -2,8 +2,9 @@ create table User
 (
     id int auto_increment,
     name varchar(20) not null,
-    nickname varchar(20) not null,
+    nickname varchar(10) not null,
     email varchar(20) not null,
+    password varchar(20) not null,
     image longtext not null,
     createdAt datetime not null,
     updatedAt datetime not null,

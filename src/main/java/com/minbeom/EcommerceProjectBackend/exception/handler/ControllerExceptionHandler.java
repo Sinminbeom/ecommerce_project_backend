@@ -1,5 +1,6 @@
-package com.minbeom.EcommerceProjectBackend.exception;
+package com.minbeom.EcommerceProjectBackend.exception.handler;
 
+import com.minbeom.EcommerceProjectBackend.exception.InvalidParameterException;
 import com.minbeom.EcommerceProjectBackend.response.ErrorCode;
 import com.minbeom.EcommerceProjectBackend.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
